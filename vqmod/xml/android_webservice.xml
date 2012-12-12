@@ -1,0 +1,17 @@
+<modification>
+	<id>Webservice extension for an Android application</id>
+	<version>1.4.x and 1.5.x</version>
+	<vqmver>1.0</vqmver>
+	<author>http://www.dobrenteiistvan.hu, http://www.dotlogics.hu</author>
+	<file name="admin/controller/common/login.php">
+		<operation>
+			<search position="after"><![CDATA[$this->session->data['token'] = md5(mt_rand());]]></search>
+			<add><![CDATA[
+				if (isset($this->request->post['service'])) 
+				{
+					return $this->forward($this->request->post['service']);
+				}
+			]]></add>
+		</operation>
+	</file>
+</modification>
